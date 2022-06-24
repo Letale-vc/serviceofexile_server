@@ -8,6 +8,7 @@ import { stringify } from 'querystring'
 import { Role } from '../role/role.entity'
 import { findLastChar } from '../poe_fetch/findLastCharPoe'
 import { getProfilePoe } from '../poe_fetch/getProfilePoe'
+import 'dotenv/config'
 
 @Injectable()
 export class UsersService {
@@ -127,6 +128,8 @@ export class UsersService {
     const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID
     const DISCORD_REDIRECT_URI = 'https://serviceofexile.com/callback/discord'
     const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET
+
+
     const data = {
       client_id: DISCORD_CLIENT_ID,
       grant_type: 'authorization_code',

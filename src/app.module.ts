@@ -12,9 +12,11 @@ import { VouchesModule } from './vouches/vouches.module'
 import { CurrencyModule } from './data/currency/currency.module'
 import { AdminModule } from './admin/admin.module'
 import { RoleModule } from './role/role.module'
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: '127.0.0.1',
