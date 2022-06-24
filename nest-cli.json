@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "./src"
+}
