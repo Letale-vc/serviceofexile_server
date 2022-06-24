@@ -124,9 +124,9 @@ export class UsersService {
   }
 
   async connectDiscord(uuid: string, code: string): Promise<User> {
-    const DISCORD_CLIENT_ID = '784172939779768350'
+    const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID
     const DISCORD_REDIRECT_URI = 'https://serviceofexile.com/callback/discord'
-    const DISCORD_CLIENT_SECRET = process.env.DISCORD_KEY
+    const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET
     const data = {
       client_id: DISCORD_CLIENT_ID,
       grant_type: 'authorization_code',
