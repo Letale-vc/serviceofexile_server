@@ -50,7 +50,7 @@ export class AuthService {
         )
       }
       throw new HttpException(
-        { message: 'Unknown error' },
+         { message: 'Unknown error' },
         HttpStatus.INTERNAL_SERVER_ERROR
       )
     }
