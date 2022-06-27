@@ -1,5 +1,3 @@
-import { JwtReturnUserDto } from '../auth/dto/auth.dto'
-import { VouchesService } from './vouches.service'
 import {
   Body,
   Controller,
@@ -7,9 +5,11 @@ import {
   HttpCode,
   ForbiddenException
 } from '@nestjs/common'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
+import { JwtReturnUserDto } from '../auth/dto/auth.dto'
+import { VouchesService } from './vouches.service'
 import { VouchesGiveDTO } from './dto/vouches.dto'
 import { UserReq } from '../users/decorators/user.decorator'
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
 
 @ApiBearerAuth()
 @ApiTags('vouches')

@@ -1,6 +1,6 @@
-import { ServiceCategory } from '../serviceCategory/serviceCategory.entity'
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm'
 import { ApiProperty } from '@nestjs/swagger'
+import { ServiceCategory } from '../serviceCategory/serviceCategory.entity'
 
 @Entity()
 export class ServiceName {

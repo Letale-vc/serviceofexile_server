@@ -1,8 +1,8 @@
-import { BanlistAddDto } from './dto/banlist-add.dto'
-import { Banlist } from './banlist.entity'
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository, DeleteResult } from 'typeorm'
+import { Banlist } from './banlist.entity'
+import { BanlistAddDto } from './dto/banlist-add.dto'
 import { UsersService } from '../users/user.service'
 import { User } from '../users/entities/user.entity'
 
@@ -44,7 +44,7 @@ export class BanlistService {
 
   async delete(accountName: string): Promise<DeleteResult> {
     return this._banlistRepository.delete({
-      user: { accountName: accountName }
+      user: { accountName }
     })
   }
 }

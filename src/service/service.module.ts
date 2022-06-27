@@ -1,7 +1,7 @@
-import { ServiceController } from './service.controller'
 import { Module } from '@nestjs/common'
-import { Service } from './service.entity'
 import { TypeOrmModule } from '@nestjs/typeorm'
+import { ServiceController } from './service.controller'
+import { Service } from './service.entity'
 import { ServiceService } from './service.service'
 
 @Module({

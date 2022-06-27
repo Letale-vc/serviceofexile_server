@@ -2,9 +2,9 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
 import { ILike, ObjectLiteral, Repository } from 'typeorm'
 import axios from 'axios'
-import { User } from './entities/user.entity'
-import { UserSerializer } from './common/user_serializer'
 import { stringify } from 'querystring'
+import { User } from './entities/user.entity'
+import { UserSerializer } from './common/userSerializer'
 import { Role } from '../role/role.entity'
 import { findLastChar } from '../poe_fetch/findLastCharPoe'
 import { getProfilePoe } from '../poe_fetch/getProfilePoe'
@@ -26,23 +26,21 @@ export class UsersService {
       return newRole
     })
     updateUser.roles = newRoles
-    const test = await this._usersRepository.save(updateUser)
-    console.log(test)
+    await this._usersRepository.save(updateUser)
   }
 
   async findUserForAuth(uuid: string): Promise<User> | undefined {
-    const findUserForAuthResponseDB = await  this._usersRepository
+    const findUserForAuthResponseDB = await this._usersRepository
       .createQueryBuilder('user')
       .select(['user.uuid', 'user.accountName'])
       .where('user.uuid = :uuid', { uuid })
       .leftJoinAndSelect('user.roles', 'roles')
       .getOne()
-      if (findUserForAuthResponseDB.uuid){
-        return findUserForAuthResponseDB
-      }
-      else{
-        return undefined
-      } 
+    if (findUserForAuthResponseDB.uuid) {
+      return findUserForAuthResponseDB
+    }
+
+    return undefined
   }
 
   async findUserForBanlist(accountName: string): Promise<User> {
@@ -90,7 +88,7 @@ export class UsersService {
   }
 
   async findUserByUuid(uuid: string): Promise<UserSerializer> {
-    const user = await this._findUserAny('user.uuid = :uuid', { uuid: uuid })
+    const user = await this._findUserAny('user.uuid = :uuid', { uuid })
 
     return new UserSerializer(user)
   }
@@ -125,16 +123,15 @@ export class UsersService {
   }
 
   async connectDiscord(uuid: string, code: string): Promise<User> {
-    const DISCORD_CLIENT_ID = process.env.DISCORD_CLIENT_ID
+    const { DISCORD_CLIENT_ID } = process.env
     const DISCORD_REDIRECT_URI = 'https://serviceofexile.com/callback/discord'
-    const DISCORD_CLIENT_SECRET = process.env.DISCORD_CLIENT_SECRET
-
+    const { DISCORD_CLIENT_SECRET } = process.env
 
     const data = {
       client_id: DISCORD_CLIENT_ID,
       grant_type: 'authorization_code',
       client_secret: DISCORD_CLIENT_SECRET,
-      code: code,
+      code,
       redirect_uri: DISCORD_REDIRECT_URI,
       scope: 'identify'
     }

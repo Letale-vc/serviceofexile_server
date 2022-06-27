@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger'
 import { IsDefined, IsNumber, IsString } from 'class-validator'
 
 export class ServicesFindDto {
-  [index: string]: any
+  [index: string]: unknown
 
   @ApiProperty()
   @IsNumber()

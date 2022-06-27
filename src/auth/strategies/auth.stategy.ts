@@ -13,14 +13,12 @@ export class CastomStrategy extends PassportStrategy(Strategy, 'custom') {
     super()
   }
 
-  async validate({ body: { code } }): Promise<any> {
+  async validate({ body: { code } }): Promise<unknown> {
     if (!code) {
       throw new BadRequestException()
     }
     const user = await this._authService.validateUser(code)
-    console.log(user)
     if (user === null) {
-      console.log(user)
       throw new UnauthorizedException()
     }
     return user

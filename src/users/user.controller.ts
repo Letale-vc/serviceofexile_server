@@ -1,12 +1,12 @@
 import { Body, Controller, Get, HttpCode, Param, Put } from '@nestjs/common'
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
 import { Public } from '../auth/constants'
 import { UsersService } from './user.service'
 import { JwtReturnUserDto } from '../auth/dto/auth.dto'
 import { UserReq } from './decorators/user.decorator'
 import { UserSyncDiscordDto } from './dto/user-sync-discord.dto'
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
 import { UserUpdatePoeResponse } from '../common-interface/user/UserUpdatePoeResponse'
-import { UserSerializer } from './common/user_serializer'
+import { UserSerializer } from './common/userSerializer'
 
 @ApiBearerAuth()
 @ApiTags('user')
@@ -37,7 +37,6 @@ export class UsersController {
     @Body() body: UserSyncDiscordDto
   ): Promise<void> {
     await this._userService.connectDiscord(user.uuid, body.code)
-    return
   }
 
   @Public()

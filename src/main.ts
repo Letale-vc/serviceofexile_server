@@ -1,10 +1,8 @@
-import { AppModule } from './app.module'
+/* eslint-disable no-console */
 import { NestFactory } from '@nestjs/core'
 import { ValidationPipe } from '@nestjs/common'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
-import { rest } from 'msw'
-import { setupServer } from 'msw/node'
-import poeHandlers from '../mocks/pathofexile'
+import { AppModule } from './app.module'
 
 const start = async () => {
   try {
@@ -26,16 +24,10 @@ const start = async () => {
     const document = SwaggerModule.createDocument(app, configSwagger)
     SwaggerModule.setup('api', app, document)
 
-    await app.listen(PORT, () => console.log(`server started on port ${PORT}`))
-  } catch (e: any) {
+    await app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
+  } catch (e: unknown) {
     console.log(e)
   }
 }
 
-// const server = setupServer(...poeHandlers)
-
-
-// process.once('SIGINT', () => server.close())
-// process.once('SIGTERM', () => server.close())
-// server.listen()
-void start()
+start()

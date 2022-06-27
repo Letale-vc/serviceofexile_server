@@ -1,11 +1,11 @@
-import { JwtReturnUserDto } from './dto/auth.dto'
-import { UsersService } from '../users/user.service'
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
+import axios from 'axios'
+import { JwtReturnUserDto } from './dto/auth.dto'
+import { UsersService } from '../users/user.service'
 import { findLastChar } from '../poe_fetch/findLastCharPoe'
 import { getProfilePoe } from '../poe_fetch/getProfilePoe'
 import { authPoe } from '../poe_fetch/authPoe'
-import axios from 'axios'
 
 @Injectable()
 export class AuthService {
@@ -50,7 +50,7 @@ export class AuthService {
         )
       }
       throw new HttpException(
-         { message: 'Unknown error' },
+        { message: 'Unknown error' },
         HttpStatus.INTERNAL_SERVER_ERROR
       )
     }

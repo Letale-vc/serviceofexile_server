@@ -1,8 +1,8 @@
-import { ServiceCreateDto } from './dto/service-create.dto'
-import { Service } from './service.entity'
 import { InjectRepository } from '@nestjs/typeorm'
 import { DeleteResult, Repository, UpdateResult } from 'typeorm'
 import { Injectable } from '@nestjs/common'
+import { Service } from './service.entity'
+import { ServiceCreateDto } from './dto/service-create.dto'
 import { User } from '../users/entities/user.entity'
 import { ServiceName } from '../data/serviceNames/serviceName.entity'
 import { League } from '../data/league/league.entity'
@@ -81,7 +81,6 @@ export class ServiceService {
     newService.serviceName.id = serviceCreateDto.serviceNameId
 
     await this._serviceRepository.save(newService)
-    return
   }
 
   async update(

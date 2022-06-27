@@ -1,7 +1,3 @@
-/*
-https://docs.nestjs.com/fundamentals/testing#unit-testing
-*/
-
 import { Test } from '@nestjs/testing'
 import { getRepositoryToken } from '@nestjs/typeorm'
 import { ServiceCategory } from './serviceCategory.entity'

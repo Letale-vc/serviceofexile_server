@@ -6,16 +6,14 @@ import {
   UploadedFile,
   UseInterceptors
 } from '@nestjs/common'
-
 import { FileInterceptor } from '@nestjs/platform-express'
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Express } from 'express'
-import { jsonFileFilter } from './fileHelper'
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
+import { jsonFileFilter } from './fileHelper'
 import { ServiceNameService } from './serviceName.service'
-import {
-  ServiceNameCreateDto,
-  ServiceNameCreateMassDto
-} from './dto/serviceName.dto'
+import { ServiceNameCreateMassDto } from './dto/ServiceNameCreateMass.dto'
+import { ServiceNameCreateDto } from './dto/ServiceNameCreateDto'
 import { ServiceName } from './serviceName.entity'
 import { Public } from '../../auth/constants'
 

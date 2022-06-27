@@ -1,4 +1,3 @@
-import { User } from '../../users/entities/user.entity'
 import {
   Entity,
   Column,
@@ -8,6 +7,7 @@ import {
   UpdateDateColumn
 } from 'typeorm'
 import { ApiProperty } from '@nestjs/swagger'
+import { User } from '../../users/entities/user.entity'
 
 @Entity()
 export class VouchesAll {

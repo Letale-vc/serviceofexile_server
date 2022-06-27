@@ -1,7 +1,7 @@
 import { BadRequestException } from '@nestjs/common'
 
 export const jsonFileFilter = (
-  reqz: any,
+  reqz: never,
   file: Express.Multer.File,
   callback: (error: Error | null, acceptFile: boolean) => void
 ): void => {

@@ -1,8 +1,8 @@
+import { setupServer } from 'msw/node'
+import { rest } from 'msw'
 import { authPoe } from './authPoe'
 import { findLastChar } from './findLastCharPoe'
 import { getProfilePoe } from './getProfilePoe'
-import { setupServer } from 'msw/node'
-import { rest } from 'msw'
 
 const server = setupServer()
 beforeAll(() => {

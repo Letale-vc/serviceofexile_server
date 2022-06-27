@@ -17,7 +17,7 @@ export const findLastChar = async (
         const char = Object.keys(currentValue)
 
         if (char.includes('current')) return currentValue.name
-        else return _previousValue
+        return _previousValue
       },
       null
     )

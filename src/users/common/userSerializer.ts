@@ -1,20 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { Service } from '../../service/service.entity'
 import { User } from '../entities/user.entity'
-
-export class VouchesCount {
-  @ApiProperty()
-  readonly vouches_unique_all_count: number
-
-  @ApiProperty()
-  readonly vouches_all_count: number
-
-  @ApiProperty()
-  readonly vouches_unique_league_count: number
-
-  @ApiProperty()
-  readonly vouches_league_count: number
-}
+import { VouchesCount } from './VouchesCount'
 
 export class UserSerializer {
   constructor(userReturnFindOneDb: User) {

@@ -1,11 +1,9 @@
 import { InjectRepository } from '@nestjs/typeorm'
 import { Injectable } from '@nestjs/common'
-import { ServiceName } from './serviceName.entity'
 import { Repository, DeleteResult } from 'typeorm'
-import {
-  ServiceNameCreateDto,
-  ServiceNameCreateMassDto
-} from './dto/serviceName.dto'
+import { ServiceName } from './serviceName.entity'
+import { ServiceNameCreateMassDto } from './dto/ServiceNameCreateMass.dto'
+import { ServiceNameCreateDto } from './dto/ServiceNameCreateDto'
 
 @Injectable()
 export class ServiceNameService {

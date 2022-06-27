@@ -10,12 +10,12 @@ import {
   PrimaryColumn,
   UpdateDateColumn
 } from 'typeorm'
+import { ApiProperty } from '@nestjs/swagger'
 import { VouchesLeague } from '../../vouches/entities/vouchesLeague.entity'
 import { VouchesAll } from '../../vouches/entities/vouchesAll.entity'
 import { Banlist } from '../../banlist/banlist.entity'
 import { Service } from '../../service/service.entity'
 import { Role } from '../../role/role.entity'
-import { ApiProperty } from '@nestjs/swagger'
 
 @Entity({ name: 'users' })
 export class User {

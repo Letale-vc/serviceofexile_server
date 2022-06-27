@@ -31,14 +31,14 @@ export class AdminController {
     @UserReq() user: JwtReturnUserDto,
     @Body() banlistAddDTO: BanlistAddDto
   ): Promise<Banlist> {
-   return await this._banlistService.add(banlistAddDTO, user.uuid)
+    return this._banlistService.add(banlistAddDTO, user.uuid)
   }
 
   @Delete('unbanned')
   async UnbannedUser(
     @Query() banlistDeleteDTO: BanlistDeleteDto
   ): Promise<DeleteResult> {
-    return  await this._banlistService.delete(banlistDeleteDTO.accountName)
+    return this._banlistService.delete(banlistDeleteDTO.accountName)
   }
 
   @Put('roles')

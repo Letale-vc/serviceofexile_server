@@ -1,9 +1,9 @@
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
+import { ApiProperty } from '@nestjs/swagger'
 import { ServiceName } from '../data/serviceNames/serviceName.entity'
 import { League } from '../data/league/league.entity'
 import { User } from '../users/entities/user.entity'
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Currency } from '../data/currency/currency.entity'
-import { ApiProperty } from '@nestjs/swagger'
 
 @Entity({ name: 'services' })
 export class Service {

@@ -1,6 +1,6 @@
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { Banlist } from './banlist.entity'
 import { Module } from '@nestjs/common'
+import { Banlist } from './banlist.entity'
 import { BanlistService } from './banlist.service'
 import { UserModule } from '../users/user.module'
 

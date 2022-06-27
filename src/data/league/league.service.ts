@@ -1,8 +1,8 @@
-import { LeagueDeleteDto } from './dto/league.dto'
-import { League } from './league.entity'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Injectable } from '@nestjs/common'
 import { DeleteResult, Repository } from 'typeorm'
+import { League } from './league.entity'
+import { LeagueDeleteDto } from './dto/LeagueDelete.dto'
 
 @Injectable()
 export class LeagueService {
@@ -17,12 +17,8 @@ export class LeagueService {
   async add(name: string): Promise<League | League[]> {
     if (name === 'Standart' || name === 'Hardcore') {
       return this._leagueRepository.save({ name })
-    } else {
-      return this._leagueRepository.save([
-        { name: name },
-        { name: `${name} Hardcore` }
-      ])
     }
+    return this._leagueRepository.save([{ name }, { name: `${name} Hardcore` }])
   }
 
   async delete(

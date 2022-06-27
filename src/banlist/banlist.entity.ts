@@ -1,4 +1,3 @@
-import { User } from '../users/entities/user.entity'
 import {
   Column,
   Entity,
@@ -8,6 +7,7 @@ import {
   PrimaryGeneratedColumn
 } from 'typeorm'
 import { ApiProperty } from '@nestjs/swagger'
+import { User } from '../users/entities/user.entity'
 
 @Entity()
 export class Banlist {

@@ -1,7 +1,7 @@
-import { ServiceCategory } from './serviceCategory.entity'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Injectable } from '@nestjs/common'
 import { DeleteResult, Repository } from 'typeorm'
+import { ServiceCategory } from './serviceCategory.entity'
 
 @Injectable()
 export class ServiceCategoryService {
@@ -33,7 +33,7 @@ export class ServiceCategoryService {
   }
 
   async add(name: string): Promise<ServiceCategory> {
-    return this._serviceCategoryRepository.save({ name: name })
+    return this._serviceCategoryRepository.save({ name })
   }
 
   async delete(id: number): Promise<DeleteResult> {

@@ -28,7 +28,7 @@ export class VouchesService {
     if (checkVouch) {
       const dateCreatedVouch = new Date(checkVouch.created_at)
       const toDay = new Date()
-      if (<any>toDay - <any>dateCreatedVouch <= 8640000) {
+      if (toDay.getTime() - dateCreatedVouch.getTime() <= 8640000) {
         return false
       }
     }

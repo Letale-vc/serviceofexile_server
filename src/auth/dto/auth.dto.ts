@@ -1,16 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { IsDefined } from 'class-validator'
+import { IsEnum } from 'class-validator'
 import { UserRoles } from '../../role/role.enum'
 
-export class LoginDto {
-  @ApiProperty()
-  @IsDefined()
-  readonly code: string
-}
-
 export class JwtReturnUserDto {
-  @ApiProperty({ type: () => [UserRoles] })
-  readonly roles: UserRoles[]
+  @IsEnum(UserRoles, { each: true })
+  @ApiProperty({ enum: UserRoles })
+  readonly roles: string
 
   @ApiProperty()
   readonly uuid: string

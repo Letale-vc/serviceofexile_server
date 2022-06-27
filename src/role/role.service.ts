@@ -26,8 +26,7 @@ export class RoleService implements OnModuleInit {
       const roles = Object.keys(UserRoles)
 
       roles.forEach((role) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        void sameFunc(UserRoles[role])
+        sameFunc(UserRoles[role])
       })
     }
   }

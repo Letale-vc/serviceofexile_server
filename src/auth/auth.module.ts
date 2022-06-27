@@ -1,14 +1,14 @@
+import { Module } from '@nestjs/common'
+import { PassportModule } from '@nestjs/passport'
+import { JwtModule } from '@nestjs/jwt'
+import { APP_GUARD } from '@nestjs/core'
 import { JwtStrategy } from './strategies/jwt.stategy'
 import { CastomStrategy } from './strategies/auth.stategy'
 import { AuthController } from './auth.controller'
 import { UserModule } from '../users/user.module'
 import { jwtConstants } from './constants'
 import { AuthService } from './auth.service'
-import { Module } from '@nestjs/common'
-import { PassportModule } from '@nestjs/passport'
-import { JwtModule } from '@nestjs/jwt'
 import { JwtAuthGuard } from './guards/JwtAuth.guard'
-import { APP_GUARD } from '@nestjs/core'
 
 @Module({
   imports: [

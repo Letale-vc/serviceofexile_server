@@ -1,7 +1,7 @@
+import { Injectable } from '@nestjs/common'
 import { Data } from './data.entity'
 import { ServiceCategoryService } from './serviceCategory/serviceCategory.service'
 import { LeagueService } from './league/league.service'
-import { Injectable } from '@nestjs/common'
 import { CurrencyService } from './currency/currency.service'
 
 @Injectable()

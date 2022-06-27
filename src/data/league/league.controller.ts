@@ -1,9 +1,10 @@
-import { LeagueCreateDto, LeagueDeleteDto } from './dto/league.dto'
-import { LeagueService } from './league.service'
 import { Body, Controller, Delete, Post } from '@nestjs/common'
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger'
-import { League } from './league.entity'
 import { DeleteResult } from 'typeorm'
+import { LeagueCreateDto } from './dto/leagueCreate.dto'
+import { LeagueDeleteDto } from './dto/LeagueDelete.dto'
+import { LeagueService } from './league.service'
+import { League } from './league.entity'
 
 @ApiBearerAuth()
 @ApiTags('data/league')
